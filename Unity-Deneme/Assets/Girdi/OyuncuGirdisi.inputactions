@@ -1,0 +1,98 @@
+{
+    "name": "OyuncuGirdi",
+    "maps": [
+        {
+            "name": "Ayakta",
+            "id": "f2c1567c-01fb-4b9d-8a90-d567599ab05e",
+            "actions": [
+                {
+                    "name": "Hareket",
+                    "type": "Value",
+                    "id": "c15ff7e4-0caf-47a3-b018-48297c0a27d6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Zipla",
+                    "type": "Button",
+                    "id": "9c3b904e-8837-4190-b3f8-f7292674e47c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "f0836b53-4f19-4d5a-9f1e-ad50c08c2ad3",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hareket",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "7c3258f7-609f-424a-90eb-1db30206fcd3",
+                    "path": "<Keyboard>/#(W)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hareket",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "805ddceb-8d9b-4c6a-8fe3-f082874affcb",
+                    "path": "<Keyboard>/#(S)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hareket",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "96d303fa-4247-4b06-ab71-a4dacb73ed90",
+                    "path": "<Keyboard>/#(A)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hareket",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "cb0259f8-e15f-44a6-b44e-45e029b4c01b",
+                    "path": "<Keyboard>/#(D)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hareket",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d730b787-1a92-4e11-8f6b-2a717753c4da",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zipla",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
