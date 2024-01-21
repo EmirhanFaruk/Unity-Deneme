@@ -44,6 +44,15 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bak"",
+                    ""type"": ""Value"",
+                    ""id"": ""00c5ad4a-ff01-4811-93eb-90baccc0cf8c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
                     ""action"": ""Zipla"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9abd544f-aaee-4b17-b072-321da3c1d8b6"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
         m_Ayakta = asset.FindActionMap("Ayakta", throwIfNotFound: true);
         m_Ayakta_Hareket = m_Ayakta.FindAction("Hareket", throwIfNotFound: true);
         m_Ayakta_Zipla = m_Ayakta.FindAction("Zipla", throwIfNotFound: true);
+        m_Ayakta_Bak = m_Ayakta.FindAction("Bak", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +206,14 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
     private List<IAyaktaActions> m_AyaktaActionsCallbackInterfaces = new List<IAyaktaActions>();
     private readonly InputAction m_Ayakta_Hareket;
     private readonly InputAction m_Ayakta_Zipla;
+    private readonly InputAction m_Ayakta_Bak;
     public struct AyaktaActions
     {
         private @OyuncuGirdisi m_Wrapper;
         public AyaktaActions(@OyuncuGirdisi wrapper) { m_Wrapper = wrapper; }
         public InputAction @Hareket => m_Wrapper.m_Ayakta_Hareket;
         public InputAction @Zipla => m_Wrapper.m_Ayakta_Zipla;
+        public InputAction @Bak => m_Wrapper.m_Ayakta_Bak;
         public InputActionMap Get() { return m_Wrapper.m_Ayakta; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +229,9 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
             @Zipla.started += instance.OnZipla;
             @Zipla.performed += instance.OnZipla;
             @Zipla.canceled += instance.OnZipla;
+            @Bak.started += instance.OnBak;
+            @Bak.performed += instance.OnBak;
+            @Bak.canceled += instance.OnBak;
         }
 
         private void UnregisterCallbacks(IAyaktaActions instance)
@@ -216,6 +242,9 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
             @Zipla.started -= instance.OnZipla;
             @Zipla.performed -= instance.OnZipla;
             @Zipla.canceled -= instance.OnZipla;
+            @Bak.started -= instance.OnBak;
+            @Bak.performed -= instance.OnBak;
+            @Bak.canceled -= instance.OnBak;
         }
 
         public void RemoveCallbacks(IAyaktaActions instance)
@@ -237,5 +266,6 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
     {
         void OnHareket(InputAction.CallbackContext context);
         void OnZipla(InputAction.CallbackContext context);
+        void OnBak(InputAction.CallbackContext context);
     }
 }

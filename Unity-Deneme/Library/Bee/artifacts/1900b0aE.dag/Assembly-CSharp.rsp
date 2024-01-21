@@ -348,6 +348,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Girdi/OyuncuGirdisi.cs"
 "Assets/Scriptler/GirdiYoneticisi.cs"
+"Assets/Scriptler/OyuncuBak.cs"
 "Assets/Scriptler/OyuncuMotoru.cs"
 -langversion:9.0
 

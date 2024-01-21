@@ -1,5 +1,5 @@
 {
-    "name": "OyuncuGirdi",
+    "name": "OyuncuGirdisi",
     "maps": [
         {
             "name": "Ayakta",
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Bak",
+                    "type": "Value",
+                    "id": "00c5ad4a-ff01-4811-93eb-90baccc0cf8c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -88,6 +97,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Zipla",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9abd544f-aaee-4b17-b072-321da3c1d8b6",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bak",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
