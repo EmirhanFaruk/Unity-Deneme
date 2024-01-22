@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Etkilesimli : MonoBehaviour
 {
     // Oyuncu etkilesimliye baktiginda cikacak yazi
-    public string gozukecekYazi;
+    public string bilgiYazisi;
 
     // Oyuncu tarafindan cagirilacak.
     public void ErisTemel()
@@ -13,5 +13,5 @@ public abstract class Etkilesimli : MonoBehaviour
         Eris();
     }
 
-    public virtual void Eris() { }
+    protected virtual void Eris() { }
 }

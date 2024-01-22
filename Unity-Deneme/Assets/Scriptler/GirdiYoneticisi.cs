@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class GirdiYoneticisi : MonoBehaviour
 {
     private OyuncuGirdisi oyuncuGirdisi;
-    private OyuncuGirdisi.AyaktaActions ayakta;
+    public OyuncuGirdisi.AyaktaActions ayakta;
 
 
     private OyuncuMotoru motor;
