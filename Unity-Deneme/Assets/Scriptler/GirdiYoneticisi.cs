@@ -22,6 +22,8 @@ public class GirdiYoneticisi : MonoBehaviour
         bak = GetComponent<OyuncuBak>();
 
         ayakta.Zipla.performed += ctx => motor.Zipla();
+        ayakta.Kos.performed += ctx => motor.Kos();
+        ayakta.Kos.canceled += ctx => motor.KosmayiBirak();
     }
 
     // Update is called once per frame

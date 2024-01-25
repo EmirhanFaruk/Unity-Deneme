@@ -62,6 +62,15 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Kos"",
+                    ""type"": ""Button"",
+                    ""id"": ""766a6cf3-07f1-4a5a-81b0-c4f75581569d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -150,6 +159,17 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Etkiles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3a0b994-0963-4e5c-b0f2-d7e7de30a22e"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Kos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -680,6 +700,7 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
         m_Ayakta_Zipla = m_Ayakta.FindAction("Zipla", throwIfNotFound: true);
         m_Ayakta_Bak = m_Ayakta.FindAction("Bak", throwIfNotFound: true);
         m_Ayakta_Etkiles = m_Ayakta.FindAction("Etkiles", throwIfNotFound: true);
+        m_Ayakta_Kos = m_Ayakta.FindAction("Kos", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -757,6 +778,7 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
     private readonly InputAction m_Ayakta_Zipla;
     private readonly InputAction m_Ayakta_Bak;
     private readonly InputAction m_Ayakta_Etkiles;
+    private readonly InputAction m_Ayakta_Kos;
     public struct AyaktaActions
     {
         private @OyuncuGirdisi m_Wrapper;
@@ -765,6 +787,7 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
         public InputAction @Zipla => m_Wrapper.m_Ayakta_Zipla;
         public InputAction @Bak => m_Wrapper.m_Ayakta_Bak;
         public InputAction @Etkiles => m_Wrapper.m_Ayakta_Etkiles;
+        public InputAction @Kos => m_Wrapper.m_Ayakta_Kos;
         public InputActionMap Get() { return m_Wrapper.m_Ayakta; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -786,6 +809,9 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
             @Etkiles.started += instance.OnEtkiles;
             @Etkiles.performed += instance.OnEtkiles;
             @Etkiles.canceled += instance.OnEtkiles;
+            @Kos.started += instance.OnKos;
+            @Kos.performed += instance.OnKos;
+            @Kos.canceled += instance.OnKos;
         }
 
         private void UnregisterCallbacks(IAyaktaActions instance)
@@ -802,6 +828,9 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
             @Etkiles.started -= instance.OnEtkiles;
             @Etkiles.performed -= instance.OnEtkiles;
             @Etkiles.canceled -= instance.OnEtkiles;
+            @Kos.started -= instance.OnKos;
+            @Kos.performed -= instance.OnKos;
+            @Kos.canceled -= instance.OnKos;
         }
 
         public void RemoveCallbacks(IAyaktaActions instance)
@@ -943,6 +972,7 @@ public partial class @OyuncuGirdisi: IInputActionCollection2, IDisposable
         void OnZipla(InputAction.CallbackContext context);
         void OnBak(InputAction.CallbackContext context);
         void OnEtkiles(InputAction.CallbackContext context);
+        void OnKos(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
