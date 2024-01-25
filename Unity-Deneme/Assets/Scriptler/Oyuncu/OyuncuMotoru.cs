@@ -11,8 +11,8 @@ public class OyuncuMotoru : MonoBehaviour
 
     public float hiz = 5f;
     public float maxHiz = 7f;
-    public float sifirlayiciHiz = 4f;
-    public float surtunme = 4f;
+    public float sifirlayiciHiz = 0.8f;
+    public float surtunme = 2f;
 
     public float yercekimi = -9.8f;
     public float ziplamaYuksekligi = 10.0f;
@@ -51,7 +51,7 @@ public class OyuncuMotoru : MonoBehaviour
         }
         if (!yerde)
         {
-            carpici /= 2f;
+            carpici *= 0.5f;
         }
         hareketYonu *= hiz * carpici;
 
@@ -70,9 +70,17 @@ public class OyuncuMotoru : MonoBehaviour
     // Vektor degeri cok fazla ise limitler.
     private Vector3 Limitle(Vector3 hareketYonu)
     {
-        if (hareketYonu.x > 0 && hareketYonu.x > maxHiz)
+        if (hareketYonu.x > 0)
         {
-            hareketYonu.x = maxHiz;
+            if (kosuyor && hareketYonu.x > maxHiz * 1.5f)
+            {
+                hareketYonu.x = maxHiz * 1.5f;
+            }
+            else if (!kosuyor && hareketYonu.x > maxHiz)
+            {
+                hareketYonu.x = maxHiz;
+            }
+            
         }
         else if (hareketYonu.x < 0 && hareketYonu.x < -maxHiz)
         {
@@ -100,13 +108,13 @@ public class OyuncuMotoru : MonoBehaviour
 
         hareketYonu = Carpila(hareketYonu);
 
-        oyuncuIvmesi += transform.TransformDirection(hareketYonu);
-
         oyuncuIvmesi = Yavaslat(oyuncuIvmesi);
 
         oyuncuIvmesi = Sifirlastir(oyuncuIvmesi);
 
         oyuncuIvmesi = Limitle(oyuncuIvmesi);
+
+        oyuncuIvmesi += transform.TransformDirection(hareketYonu);
 
 
         oyuncuIvmesi.y += yercekimi * Time.deltaTime;
